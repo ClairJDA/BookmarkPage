@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Primary Colors*/
+  --blue-600: hsl(231, 69%, 60%);
+  --red-400: hsl(0, 94%, 66%);
+
+  /* Neutral Colors */
+  --grey-50: hsl(0, 0%, 97%);
+  --blue-950: hsl(229, 31%, 21%);
 }
 
 @theme inline {
@@ -10,6 +18,11 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-blue-600: var(--blue-600);
+  --color-red-400: var(--red-400);
+  --color-grey-50: var(--grey-50);
+  --color-blue-950: var(--blue-950);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +32,47 @@
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100dvh;
+  font-family: var(--font-rubik);
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .extentions:first-child {
+    align-self: flex-start;
+  }
+
+  .extentions:last-child {
+    align-self: flex-end;
+  }
+}
+
+.hero-bg {
+  background: var(--blue-600);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position:  bottom right;
+  border-radius: 0 0 0 200px;
+}
+
+.hero-img{
+  z-index: 99;
+  background-image: url("/images/illustration-hero.svg");
+  background-position:  top right;
+}
+
+.devider{
+  @apply w-full border-t-0 border-b text-gray-400/50 md:hidden
+}
+.active-devider{
+  @apply w-[160px] border-t-0 border-b-2 border-red-400
+}
+
+.blue-btn{
+  @apply py-2 px-4 text-white text-sm bg-blue-600 rounded-md
 }
